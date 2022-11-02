@@ -1,0 +1,30 @@
+﻿@model List<SistemaDeCadenasAlimenticias.Data.Entidades.Sucursal>
+
+
+@{
+}
+
+<h1>Listado de Sucursales</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Cadena</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Ciudad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sucursal in Model)
+        {
+            <tr>
+                <th>@sucursal.Id</th>
+                <td>@sucursal.IdCadena</td>
+                <td>@sucursal.Direccion</td>
+                <td>@sucursal.Ciudad</td>
+            </tr>
+        }
+       
+    </tbody>
+</table>

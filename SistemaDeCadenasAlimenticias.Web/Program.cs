@@ -1,7 +1,14 @@
+using SistemaDeCadenasAlimenticias.Data.Entidades;
+using SistemaDeCadenasAlimenticias.Logica;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<SistemaCadenasAlimenticiasParcial2PW3Context>();
+
+builder.Services.AddScoped<ISucursalServicio, SucursalServicio>();
 
 var app = builder.Build();
 
@@ -22,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Sucursal}/{action=ListaSucursales}/{id?}");
 
 app.Run();

@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SistemaDeCadenasAlimenticias.Data\SistemaDeCadenasAlimenticias.Data.csproj" />
+    <ProjectReference Include="..\SistemaDeCadenasAlimenticias.Logica\SistemaDeCadenasAlimenticias.Logica.csproj" />
   </ItemGroup>
 
 </Project>
