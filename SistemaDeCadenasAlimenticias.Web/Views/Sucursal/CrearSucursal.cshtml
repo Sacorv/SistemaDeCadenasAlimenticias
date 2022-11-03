@@ -1,0 +1,35 @@
+﻿@using SistemaDeCadenasAlimenticias.Data.Entidades
+
+@model Sucursal
+
+@{
+}
+
+<h1>Crear Nueva Sucursal</h1>
+
+<div>
+    <form action="/Sucursal/CrearSucursal" method="post">
+        <div>
+            Dirección
+            <input type="text" class="form-control" placeholder="" name="Direccion">
+        </div>
+        <div>
+            Ciudad
+            <input type="text" class="form-control" placeholder="" name="Ciudad">
+        </div>
+
+        <div>
+            <select class="form-select" name="IdCadena">
+                <option selected>Elegir Cadena Alimenticia</option>
+                @foreach (Cadena cadena in ViewBag.Cadenas)
+                {
+                    <option value="@cadena.Id">@cadena.RazonSocial</option>
+                }
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Grabar Nueva Sucursal" />
+        </div>
+
+    </form>
+</div>

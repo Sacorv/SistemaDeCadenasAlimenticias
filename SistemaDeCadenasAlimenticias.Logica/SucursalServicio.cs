@@ -12,6 +12,8 @@ namespace SistemaDeCadenasAlimenticias.Logica
         List<Sucursal> Listar();
 
         void Agregar(Sucursal sucursal);
+
+        List<Cadena> ListarCadenas();
     }
 
     public class SucursalServicio : ISucursalServicio
@@ -24,12 +26,20 @@ namespace SistemaDeCadenasAlimenticias.Logica
 
         public void Agregar(Sucursal sucursal)
         {
-            throw new NotImplementedException();
+            var sucursalNueva = sucursal;
+
+            _context.Sucursals.Add(sucursal);
+            _context.SaveChanges();
         }
 
         public List<Sucursal> Listar()
         {
             return _context.Sucursals.ToList();
+        }
+
+        public List<Cadena> ListarCadenas()
+        {
+            return _context.Cadenas.OrderBy(c=>c.RazonSocial).ToList();
         }
     }
 }
