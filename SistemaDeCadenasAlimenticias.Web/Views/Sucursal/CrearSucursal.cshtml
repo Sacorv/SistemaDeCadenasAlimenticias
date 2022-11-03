@@ -9,16 +9,16 @@
 
 <div>
     <form action="/Sucursal/CrearSucursal" method="post">
-        <div>
+        <div class="mb-2">
             Dirección
             <input type="text" class="form-control" placeholder="" name="Direccion">
         </div>
-        <div>
+        <div class="mb-3">
             Ciudad
             <input type="text" class="form-control" placeholder="" name="Ciudad">
         </div>
 
-        <div>
+        <div class="mb-3">
             <select class="form-select" name="IdCadena">
                 <option selected>Elegir Cadena Alimenticia</option>
                 @foreach (Cadena cadena in ViewBag.Cadenas)
@@ -31,5 +31,16 @@
             <input type="submit" value="Grabar Nueva Sucursal" />
         </div>
 
+        @*<div class="dropdown mt-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtrar por Cadena
+            </button>
+            <ul class="dropdown-menu">
+                @foreach (var micadena in ViewBag.Cadenas)
+                {
+                    <li><a class="dropdown-item" href="/Sucursal/Filtrar/@micadena.Id">@micadena.RazonSocial</a></li>
+                }
+            </ul>
+        </div>*@
     </form>
 </div>

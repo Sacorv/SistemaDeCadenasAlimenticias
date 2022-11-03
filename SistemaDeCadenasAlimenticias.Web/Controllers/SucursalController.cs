@@ -14,6 +14,7 @@ namespace SistemaDeCadenasAlimenticias.Web.Controllers
 
         public IActionResult ListaSucursales()
         {
+            ViewBag.Cadenas = _sucursalServicio.ListarCadenas();
             return View(_sucursalServicio.Listar());
         }
 
@@ -28,6 +29,22 @@ namespace SistemaDeCadenasAlimenticias.Web.Controllers
         {
             _sucursalServicio.Agregar(sucursal);
             return RedirectToAction("ListaSucursales");
+        }
+
+        public IActionResult Filtrar(int Id)
+        {
+            if(Id!=0)
+            {
+                ViewBag.Cadenas = _sucursalServicio.ListarCadenas();
+                ViewBag.SucursalesFiltradas = _sucursalServicio.FiltrarSucursales(Id);
+            }
+            else
+            {
+                ViewBag.SucursalesFiltradas = null;
+            }
+           
+
+            return View("ListaSucursales");
         }
     }
 }
